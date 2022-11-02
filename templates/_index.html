@@ -1,0 +1,144 @@
+{% extends 'partials/base.html' %}
+{% block title %}Vishnu Dashboard{% endblock %}
+
+{% block content %}
+<!-- <div class="row mt-3 pt-3"> -->
+    
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-light text-center rounded p-4">
+                <div class="table-responsive">
+                    <table class="table text-start align-middle table-bordered table-hover mb-0" id="test_data_table">
+                        <thead>
+                            <tr class="text-dark">
+                                <th scope="col">ID(Kaggle)</th>
+                                <th scope="col">Premium(%) (cash_credit)</th>
+                                <th scope="col">Age (Years)</th>
+                                <th scope="col">Income (Rs.)</th>
+                                <th scope="col">Payment Delay (3-6 months)</th>
+                                <th scope="col">Payment Delay (6-12 months)</th>
+                                <th scope="col">Payment Delay (12+ months)</th>
+                                <th scope="col">Underwritting Score</th>
+                                <th scope="col">Premiums Paid</th>
+                                <th scope="col">Sourcing Channel</th>
+                                <th scope="col">Type of Residence</th>
+
+                                <!-- <th scope="col">Action</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in urban %}
+                            <tr>
+                                <td>{{data.kaggle_id}}</td>
+                                <td>{{data.perc_premium_paid_by_cash_credit}}</td>
+                                <td>{{data.age_in_days}}</td>                                
+                                <td>{{data.income}}</td>
+                                <td>{{data.Count_3_to_6_months_late}}</td>
+                                <td>{{data.Count_6_to_12_months_late}}</td>
+                                <td>{{data.Count_more_than_12_months_late}}</td>
+                                <td>{{data.application_underwriting_score}}</td>
+                                <td>{{data.no_of_premiums_paid}}</td>
+                                <td>{{data.sourcing_channel}}</td>
+                                <td>{{data.residence_area_type}}</td>
+
+                                <!-- <td><a class="btn btn-sm btn-primary" href="">Detail</a></td> -->
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-md-4">
+        <div class="border p-3 shadow">
+            <h4>Add Data</h4>
+            <hr>
+            <form method="POST">
+                
+            </form>
+        </div>
+    </div> -->
+    <!-- <div class="col-md-4">
+        <canvas id="myChart" width="100" height="75"></canvas>
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [{% for urban in urban %}'{{ urban.residence_area_type }}',{% endfor %}],
+                    datasets: [{
+                        label: 'Premiums Paid',
+                        data: [{% for urban in urban %}{{ urban.no_of_premiums_paid}},{% endfor %}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+    <div class="col-md-4">
+        <canvas id="myChart2" width="100" height="75"></canvas>
+        <script>
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
+            const myChart2 = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: [{% for rural in rural %}'{{ rural.residence_area_type }}',{% endfor %}],
+                    datasets: [{
+                        label: 'Premiums Paid',
+                        data: [{% for rural in rural %}{{ rural.no_of_premiums_paid}},{% endfor %}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    </div> -->
+<!-- </div> -->
+{% endblock %}

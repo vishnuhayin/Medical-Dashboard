@@ -1,0 +1,6 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/home/abhivishnu/anaconda3/lib/python3.9",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
+}
