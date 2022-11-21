@@ -60,26 +60,14 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="./" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{% url 'button' %}" class="dropdown-item">Buttons</a>
-                            <a href="{% url 'typography' %}" class="dropdown-item">Typography</a>
-                            <a href="{% url 'element' %}" class="dropdown-item">Other Elements</a>
-                        </div>
-                    </div>
+                    <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{% url 'widget' %}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="{% url 'form' %}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="{% url 'table' %}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="{% url 'chart' %}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{% url 'signin' %}" class="dropdown-item">Sign In</a>
-                            <a href="{% url 'signup' %}" class="dropdown-item">Sign Up</a>
-                            <a href="{% url '_404' %}" class="dropdown-item">404 Error</a>
-                            <a href="{% url 'blank' %}" class="dropdown-item">Blank Page</a>
+                            <a href="../admin" class="dropdown-item">Django Admin Page</a>
                         </div>
                     </div>
                 </div>
@@ -199,37 +187,38 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Average BMI & Age</h6>
-                            <canvas id="line-chart"></canvas>
+                            <!-- <canvas id="line-chart"></canvas> -->
+                            <canvas id="average-bmi-age"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Gender Wise BMI & Age</h6>
-                            <canvas id="bar-chart"></canvas>
+                            <canvas id="gender-wise-bmi-age"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Average Insurance Amount & Age</h6>
-                            <canvas id="line-chart"></canvas>
+                            <canvas id="average-insurance-amount-age"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Gender Wise Insurance Amount & Age</h6>
-                            <canvas id="bar-chart"></canvas>
+                            <canvas id="gender-wise-insurance-amount-age"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Age Groups - Smoking Habit</h6>
-                            <canvas id="doughnut-chart"></canvas>
+                            <canvas id="age-groups-smoking-habit"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Region Wise Distribution</h6>
-                            <canvas id="pie-chart"></canvas>
+                            <canvas id="region-wise-smoking-habit"></canvas>
                         </div>
                     </div>
                 </div>
@@ -238,19 +227,19 @@
 
 
             <!-- Footer Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
+            <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a href="#">Vishnu Raj A</a>, All Right Reserved. 
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end"> -->
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            <!-- Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            Design Downloaded from <a href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- Footer End -->
         </div>
         <!-- Content End -->
@@ -299,7 +288,6 @@
         });
 
         // Region Wise Insurance Holders
-    
         var ctx2 = $("#region-wise-insurance-holders").get(0).getContext("2d");
         var myChart2 = new Chart(ctx2, {
         type: "bar",
@@ -322,6 +310,141 @@
             }
         });
     
+        // Average BMI & Age    
+        var ctx3 = $("#average-bmi-age").get(0).getContext("2d");
+        var myChart3 = new Chart(ctx3, {
+        type: "line",
+        data: {
+            labels: JSON.parse("{{age}}"),
+            datasets: [{
+                label: "BMI",
+                fill: true,
+                backgroundColor: "rgba(0, 156, 255, .3)",
+                data: JSON.parse("{{avg_bmi}}")
+            }]
+        },
+        options: {
+            responsive: true
+        }
+        });
+
+        //Gender Wise Insurance Amount & Age
+        var ctx4 = $("#gender-wise-bmi-age").get(0).getContext("2d");
+        var myChart4 = new Chart(ctx4, {
+        type: "line",
+        data: {
+            labels: JSON.parse("{{age}}"),
+            datasets: [{
+                    label: "Male",
+                    data: JSON.parse("{{avg_bmi_male}}"),
+                    borderColor: "rgba(0, 156, 255, .2)",
+                    backgroundColor: "rgba(0, 156, 255, .8)",
+                    fill: false
+                },
+                {
+                    label: "Female",
+                    data: JSON.parse("{{avg_bmi_female}}"),
+                    borderColor: "#bae755",
+                    borderDash: [5, 5],
+                    backgroundColor: "rgba(77,12,0,255, .4)",
+                    fill: false
+                }
+            ]
+            },
+        options: {
+            responsive: true
+        }
+        });
+
+        // Average Insurance Amount & Age    
+        var ctx5 = $("#average-insurance-amount-age").get(0).getContext("2d");
+        var myChart5 = new Chart(ctx5, {
+        type: "line",
+        data: {
+            labels: JSON.parse("{{age}}"),
+            datasets: [{
+                label: "Insurance Amount",
+                fill: true,
+                backgroundColor: "rgba(0, 156, 255, .3)",
+                data: JSON.parse("{{avg_amount}}")
+            }]
+        },
+        options: {
+            responsive: true
+        }
+        });
+
+        //Gender Wise Insurance Amount & Age
+        var ctx6 = $("#gender-wise-insurance-amount-age").get(0).getContext("2d");
+        var myChart6 = new Chart(ctx6, {
+        type: "line",
+        data: {
+            labels: JSON.parse("{{age}}"),
+            datasets: [{
+                    label: "Male",
+                    data: JSON.parse("{{avg_amount_male}}"),
+                    borderColor: "rgba(0, 156, 255, .2)",
+                    backgroundColor: "rgba(0, 156, 255, .8)",
+                    fill: false
+                },
+                {
+                    label: "Female",
+                    data: JSON.parse("{{avg_amount_female}}"),
+                    borderColor: "#bae755",
+                    borderDash: [5, 5],
+                    backgroundColor: "rgba(77,12,0,255, .4)",
+                    fill: false
+                }
+            ]
+            },
+        options: {
+            responsive: true
+        }
+        });
+
+        // Age Groups Smoking Habit
+        var ctx7 = $("#age-groups-smoking-habit").get(0).getContext("2d");
+        var myChart7 = new Chart(ctx7, {
+        type: "doughnut",
+        data: {
+            labels: ["Under 20 yrs", "20 to 30", "30 to 40", "40 to 50", "Above 50 yrs"],
+            datasets: [{
+                backgroundColor: [
+                    "rgba(0, 156, 255, .7)",
+                    "rgba(0, 156, 255, .6)",
+                    "rgba(0, 156, 255, .5)",
+                    "rgba(0, 156, 255, .4)",
+                    "rgba(0, 156, 255, .3)"
+                ],
+                data: [data['smoking_under_20'], data['smoking_20_30'], data['smoking_30_40'], data['smoking_40_50'], data['smoking_above_50']]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+        });
+
+        // Region Wise Distribution
+        var ctx8 = $("#region-wise-smoking-habit").get(0).getContext("2d");
+        var myChart8 = new Chart(ctx8, {
+        type: "pie",
+        data: {
+            labels: ["North East", "North West", "South East", "South West"],
+            datasets: [{
+                backgroundColor: [
+                    "rgba(0, 156, 255, .7)",
+                    "rgba(0, 156, 255, .6)",
+                    "rgba(0, 156, 255, .5)",
+                    "rgba(0, 156, 255, .4)",
+                    "rgba(0, 156, 255, .3)"
+                ],
+                data: [data['smoking_ne'],data['smoking_nw'],data['smoking_se'],data['smoking_sw']]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+        });
     </script>
 </body>
 

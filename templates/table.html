@@ -46,7 +46,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="" class="navbar-brand mx-4 mb-3">
+                <a href="./" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>INSURANCE 1</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -61,25 +61,13 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{% url 'button' %}" class="dropdown-item">Buttons</a>
-                            <a href="{% url 'typography' %}" class="dropdown-item">Typography</a>
-                            <a href="{% url 'element' %}" class="dropdown-item">Other Elements</a>
-                        </div>
-                    </div>
                     <a href="{% url 'widget' %}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="{% url 'form' %}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="{% url 'table' %}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="{% url 'chart' %}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{% url 'signin' %}" class="dropdown-item">Sign In</a>
-                            <a href="{% url 'signup' %}" class="dropdown-item">Sign Up</a>
-                            <a href="{% url '_404' %}" class="dropdown-item">404 Error</a>
-                            <a href="{% url 'blank' %}" class="dropdown-item">Blank Page</a>
+                            <a href="../admin" class="dropdown-item">Django Admin Page</a>
                         </div>
                     </div>
                 </div>
@@ -184,216 +172,6 @@
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <!-- <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Basic Table</h6>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>jacob@email.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Accented Table</h6>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>jacob@email.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Hoverable Table</h6>
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>jacob@email.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Color Table</h6>
-                            <table class="table table-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>jacob@email.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Bordered Table</h6>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>jacob@email.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Table Without Border</h6>
-                            <table class="table table-borderless">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>jhon@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>mark@email.com</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>jacob@email.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> -->
                     <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">Regional (North & South) Insurance Data</h6>
@@ -435,19 +213,19 @@
 
 
             <!-- Footer Start -->
-            <!-- <div class="container-fluid pt-4 px-4">
+            <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a href="#">Vishnu Raj A</a>, All Right Reserved. 
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end"> -->
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            <!-- Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            Design Downloaded from <a href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- Footer End -->
         </div>
         <!-- Content End -->

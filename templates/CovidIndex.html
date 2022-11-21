@@ -19,7 +19,7 @@
     <h1 style="margin-top: 10px; color:white;text-align:center"><span style="color:red">COVID-19</span> WORLDWIDE DATA</h1>
 
     <form method="post" style="margin-top: 50px;" class="d-flex justify-content-center align-items-center" action="">
-      {% csrf_token %}
+      {%csrf_token%}
       <select class="form-control" style="width:200px ;" name="selected_country">
         {% for country in country_list %}
             <option>{{country}}</option>

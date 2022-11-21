@@ -12,6 +12,7 @@ urlpatterns = [
     path('table', views.table, name='table'),
     path('chart', views.chart, name='chart'),
     path('signin', views.signin, name='signin'),
+    path('signout', views.signout, name='signout'),
     path('signup', views.signup, name='signup'),
     path('_404', views._404, name='_404'),
     path('blank', views.blank, name='blank'),
